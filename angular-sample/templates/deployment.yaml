@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: primenum-deployment
+  labels:
+    app: primenum
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: primenum
+  template:
+    metadata:
+      labels:
+        app: primenum
+    spec:
+      containers:
+      - name: nginx
+        image: shahadsha/primenum:latest
+        ports:
+        - containerPort: 3000
